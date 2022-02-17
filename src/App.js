@@ -1,5 +1,8 @@
 import "./styles.css";
+import 'bootstrap/dist/css/bootstrap.css';
 import React, { useState } from "react";
+import image from './img/tennis.jpg';
+
 
 export default function App() {
   const [countA, setCountA] = useState(0);
@@ -55,19 +58,48 @@ export default function App() {
   console.log("disableButton: ", disableButtons);
 
   return (
-    <div className="App">
-      <button
-        disabled={disableButtons}
-        onClick={() => setCountA(countA + 1)}>
-        {outputScore(countA)}
-      </button>
-      <button 
-        disabled={disableButtons}
-        onClick={() => setCountB(countB + 1)}>
-        {outputScore(countB)}
-      </button>
-      <div>{compareScore(countA, countB)}</div>
-      <button onClick={() => resetScore()}>Reset</button>
+    <div className="App container col-lg-3 col-md-6 col-sm-6 col-10"> 
+      <div className="Players row"> 
+      <img 
+      className="mt-5 mb-3"
+      src={image} width="150px" 
+      alt="tennis balls" /> 
+        <div className="player-A col">
+          <div>Player A</div>
+          <button
+            className="btn btn-primary  m-1"
+            disabled={disableButtons}
+            onClick={() => setCountA(countA + 1)}>
+            {outputScore(countA)}
+          </button>
+        </div>
+
+        <div className="player-B col">
+          <div>Player B</div>
+        
+          <button 
+            className="btn btn-primary m-1"
+            disabled={disableButtons}
+            onClick={() => setCountB(countB + 1)}>
+            {outputScore(countB)}
+          </button>
+        </div>
+      </div>
+
+      <div className="row">
+        <div
+            className="mb-2 mt-2">
+              {compareScore(countA, countB)}
+        </div>
+        <div className="Reset">
+          <button 
+            className="btn btn-secondary"
+            onClick={() => resetScore()}>
+            Reset
+          </button>
+        </div>
+      </div>
+
     </div>
   );
 }

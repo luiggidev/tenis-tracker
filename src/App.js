@@ -60,8 +60,9 @@ export default function App() {
   return (
     <div className="App container col-lg-3 col-md-6 col-sm-6 col-10"> 
       <div className="Players row"> 
+      <h1 className="mt-5 ">Tennis Score Tracker</h1>
       <img 
-      className="mt-5 mb-3"
+      className="mb-4 mt-3"
       src={image} width="150px" 
       alt="tennis balls" /> 
         <div className="player-A col">
